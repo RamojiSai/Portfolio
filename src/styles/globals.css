@@ -1,0 +1,123 @@
+/**
+ * Global CSS
+ * Tailwind imports and custom utilities
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap');
+
+/* Root styling */
+:root {
+  --animation-delay-2000: 2s;
+  --animation-delay-4000: 4s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-dark-900 text-dark-900 dark:text-white transition-colors duration-300;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-100 dark:bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-400 dark:bg-dark-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-600 dark:bg-dark-500;
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-accent-blue text-white;
+}
+
+/* Code blocks */
+code {
+  @apply font-mono;
+}
+
+pre {
+  @apply bg-dark-50 dark:bg-dark-900 p-4 rounded-lg overflow-x-auto;
+}
+
+/* Links */
+a {
+  @apply text-accent-blue hover:text-blue-600 transition-colors;
+}
+
+/* Utility classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan bg-clip-text text-transparent;
+}
+
+.glass {
+  @apply bg-white/10 dark:bg-dark-800/50 backdrop-blur-md;
+}
+
+.glow {
+  @apply shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:shadow-[0_0_20px_rgba(139,92,246,0.3)];
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Responsive typography */
+@layer components {
+  .text-h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight;
+  }
+
+  .text-h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .text-h3 {
+    @apply text-2xl md:text-3xl font-bold leading-tight;
+  }
+
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-sm text-dark-600 dark:text-dark-400;
+  }
+}
